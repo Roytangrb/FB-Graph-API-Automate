@@ -9,6 +9,11 @@
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>
+<p>App Status: <span id="appStatus"></span></p>
+
+<input type="" name="" id="queryInput" placeholder="v3.0/">
+<button id="submit" onclick="loggedin()">query</button>
+<pre id="response"></pre>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -29,6 +34,38 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+	function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	}
+
+	function statusChangeCallback(response){
+		if (response.status === 'connected'){
+			console.log('connected');
+		} else if (response.status === 'not_authorized' ) {
+			console.log('logged in fb but not logged in the app');
+			FB.login();
+		} else {
+			console.log('not logged in fb, app connect status unknown');
+			FB.login();
+		}
+	}
+	//login experience
+	function loggedin(){
+		const status = document.querySelector('#appStatus');
+		const pre = document.querySelector('#response');
+		const input = document.querySelector('#queryInput').value;
+
+		console.log(input)
+		status.innerHTML = 'Success'
+
+		FB.api('/' + input, function(response){
+			pre.innerHTML = JSON.stringify(response)
+		})
+	}
+
 </script>
 
 <script type="text/javascript" src="app.js"></script>
