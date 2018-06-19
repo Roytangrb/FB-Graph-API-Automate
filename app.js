@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  automate api requesting of posts
 // @author       Roy Tang
-// @match        https://github.com/Roytangrb/FB-Graph-API-Automate
+// @match        {url-you-want-to-run-the-code-under}
 // @grant        none
 // ==/UserScript==
 
