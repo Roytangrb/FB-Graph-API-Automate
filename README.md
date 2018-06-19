@@ -1,6 +1,6 @@
 # Tampermonkey Code
 JavaScipt code that runs on [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) on Chrome
-or simply [here](https://roytangrb.github.io/FB-Graph-API-Automate/){:target="_blank"}
+or simply [here](https://roytangrb.github.io/FB-Graph-API-Automate/)
 
 ## Steps
 ### Method 1
