@@ -8,7 +8,7 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+function fireFetch() {
     'use strict';
 
     // Your code here...
@@ -19,7 +19,8 @@
     var token = prompt("Access Token", "paste here")
     const url = 'https://graph.facebook.com/'+pageName+'?access_token=' + token
     var id, endpoint = ''
-    console.log(url)
+    console.log(url);
+    const pre = document.querySelector("#preJson");
 
     fetch(url).then(response=>{
        if (response.ok){
@@ -48,9 +49,17 @@
             }
         }).then(responseJson=>{
             dataArray = dataArray.concat(responseJson.data)
-            if (fetch_count === 1)console.log(dataArray)
+            if (fetch_count === 1) {
+                console.log(dataArray);
+                pre.innerHTML = JSON.stringify(dataArray, null, 2);
+            }
             fetch_count = fetch_count - 1
             return fetchNext(replaceBrackets(responseJson.paging.next))
         })
     }
-})();
+}
+
+function copy(){
+    const text = document.getElementById("preJson").innerText;
+    navigator.clipboard.writeText(text).then(()=>{alert("JSON Copied.");});
+}

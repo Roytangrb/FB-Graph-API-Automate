@@ -2,13 +2,24 @@
 <html>
 <head>
 	<title>FB Graph API Helper</title>
+	<script type="text/javascript" src="app.js"></script>
 </head>
 <body>
+	<p><a target="_blank" href="https://developers.facebook.com/tools/explorer/">Facebook Graph Explorer</a></p>
+	<button onclick="fireFetch()">After getting the token, click to fetch</button>
+
+
 <h2 style="text-align:right">Option + Command + J</h1>
 <h2 style="text-align:right">Right click array, store as global variable temp1</h1>
 <h2 style="text-align:right">JSON.stringify(temp1)</h1>
 <h2 style="text-align:right"><a href="https://konklone.io/json/" target="_blank">JSON to CSV</a></h1>
 
+	<button onclick="copy()">Copy the result</button>
+	<div>
+		<pre id="preJson">
+			No Result Yet...
+		</pre>
+	</div>
 <!--
 <fb:login-button 
   scope="public_profile,email"
@@ -73,6 +84,6 @@
 
 </script>
 -->
-<script type="text/javascript" src="app.js"></script>
+
 </body>
 </html>
